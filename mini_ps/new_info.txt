@@ -1,0 +1,7 @@
+container from java.awt.*;
+
+
+layout "grouplayout"   each containtent must belongs to both group.
+						create group withseqintialgroup set them as horaizontal ans vertical;
+						which component will be parallel in vetical axis will be in same group in horaizontal group
+						as same component will be in same group whilch will be parallel in horaizontally in vertical group

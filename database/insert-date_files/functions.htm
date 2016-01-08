@@ -1,0 +1,70 @@
+// NTC hosting JavaScript Document
+<!--
+function getEl (id) {
+	var obj = null;
+	if (!document.getElementById) return false;
+	if (!(obj =document.getElementById(id))) return false;
+	return obj;
+}
+function open_popup(adr, width, height, name){
+	var clWin = null;
+	if(!name) name = Math.round(Math.random()*1000);
+	clWin = window.open(adr, name, "height="+height+", width="+width+", top=30, left=30, status=no, toolbar=no, menubar=no, location=no, scrollbars=yes, directories=no");
+	clWin.focus();
+}
+function includeJS(jsPath)
+{
+	var js = document.createElement("script");
+	js.setAttribute("type", "text/javascript");
+	js.setAttribute("src", jsPath);
+	document.getElementsByTagName("head")[0].appendChild(js);
+}
+	
+
+//*** This code is copyright 2003 by Gavin Kistner, gavin@refinery.com
+//*** It is covered under the license viewable at http://phrogz.net/JS/_ReuseLicense.txt
+//*** Reuse or modification is free provided you abide by the terms of that license.
+//***Cross browser attach event function. For 'evt' pass a string value with the leading "on" omitted
+//***e.g. AttachEvent(window,'load',MyFunctionNameWithoutParenthesis,false);
+
+function AttachEvent(obj,evt,fnc,useCapture){
+	if (!useCapture) useCapture=false;
+	if (obj.addEventListener){
+		obj.addEventListener(evt,fnc,useCapture);
+		return true;
+	} else if (obj.attachEvent) return obj.attachEvent("on"+evt,fnc);
+	else{
+		MyAttachEvent(obj,evt,fnc);
+		obj['on'+evt]=function(){ MyFireEvent(obj,evt) };
+	}
+} 
+
+//The following are for browsers like NS4 or IE5Mac which don't support either
+//attachEvent or addEventListener
+function MyAttachEvent(obj,evt,fnc){
+	if (!obj.myEvents) obj.myEvents={};
+	if (!obj.myEvents[evt]) obj.myEvents[evt]=[];
+	var evts = obj.myEvents[evt];
+	evts[evts.length]=fnc;
+}
+function MyFireEvent(obj,evt){
+	if (!obj || !obj.myEvents || !obj.myEvents[evt]) return;
+	var evts = obj.myEvents[evt];
+	for (var i=0,len=evts.length;i<len;i++) evts[i]();
+}
+//*** End AttachEvent functions
+
+// TAB Switch Script
+var currentTab = 1;
+function selTab(num)
+{
+	getEl('tab_'+currentTab).className = '';
+	getEl('tab_'+num).className = 'current';
+	getEl('content_'+currentTab).style.display = 'none';
+	getEl('content_'+num).style.display = 'block';
+	
+	currentTab = num;
+	return;
+}
+
+//-->

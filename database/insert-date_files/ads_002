@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = new Object(); 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://googleads.g.doubleclick.net/aclk?sa=L&amp;ai=BtmShjX77TPaPHIWtsgbL1ZSaBMaJoSnyrsSRA8CNtwHAmgwQARgBINyX_AE4AFDS46LNAWCzkFqyARJ3d3cubnRjaG9zdGluZy5jb23IAQHaATBodHRwOi8vd3d3Lm50Y2hvc3RpbmcuY29tL215c3FsL2luc2VydC1kYXRlLmh0bWyAAgGoAwHoA9cC6AO5AvUDAAAAwA&amp;num=1&amp;sig=AGiWqtwBvGnVD_jwIWsR1g5hpQnNV5YOLA&amp;client=ca-pub-3460518834604685&amp;adurl=http://www.querytool.com"; 
+google_ad.visible_url = "www.querytool.com"; 
+google_ad.line1 = "Advanced Query Tool"; 
+google_ad.line2 = "Cross-database query and admin"; 
+google_ad.line3 = "tool. Powerful, fast, inexpensive."; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "http://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ntchosting.com/mysql/insert-date.html%26hl%3Den%26client%3Dca-pub-3460518834604685%26adU%3Dwww.querytool.com%26adT%3DAdvanced%2BQuery%2BTool%26gl%3DBD\x26usg\x3dAFQjCNF0AIijTGK4qEOyc_4PXZvarpGgwQ";
+var google_attribution_text = "Ads by Google";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

@@ -1,0 +1,4 @@
+length= long- give the length of the file;
+getFilePointer=void- give the present pos where to be rear or write;
+seek=  void - set position of pointer;
+read= return the asci value of the next char of the pointer;

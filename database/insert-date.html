@@ -1,0 +1,615 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link media="all" href="insert-date_files/widget48.css" type="text/css" rel="stylesheet">
+
+
+<title>How to Insert Date in a MySQL database table</title>
+<meta name="description" content="MySQL date - examples of MySQL CURDATE and manual insertion of date into a MySQL table.">
+<meta name="keywords" content="mysql date, mysql, date, database, table, curdate, manual, insert">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="insert-date_files/style.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="insert-date_files/functions.htm" type="text/JavaScript"></script>
+</head><body><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="insert-date_files/sh28.htm" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0pt none; left: 0pt; top: 0pt;" id="_atssh502"></iframe></div>
+<div id="all">
+    <div id="header">
+  <div id="logo"><a href="http://www.ntchosting.com/"><img src="insert-date_files/logo.jpg" alt="NTC Hosting - kickstart your web presence!" height="76" width="215"></a></div>
+  <div style="float: left; width: 757px; text-align: right;"><div class="top_links"><table style="margin-top: 6px;" align="center" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td width="23"><img src="insert-date_files/small_ico_cp.gif" alt="Control Panel" align="left" height="16" width="23"></td>
+    <td width="100"><a href="https://www.ntchosting.com/members/" id="control_panel_login">Control Panel</a>
+    </td>
+    <td width="23"><img src="insert-date_files/small_ico_webmail.gif" alt="Webmail" align="left"></td>
+    <td><a href="http://webmail.ntchosting.com/" id="webmail_login">Webmail</a></td>
+  </tr>
+</tbody></table>
+  </div><br clear="all"><div id="livechat"><a href="http://zebra.livechatnow.com/js/enter.php?cid=4982&amp;img=url&amp;group=NTCHosting&amp;skin=&amp;survey=&amp;survey_ec=&amp;survey_lm=&amp;rule=&amp;name=&amp;email=&amp;track=&amp;uid=49737" onclick="return _cln_enter();"><img id="chat_img" src="insert-date_files/live_chat_online.gif" alt="ntc live chat" height="34" width="221"></a></div></div>
+    <div style="float: left; width: 10px;"><img src="insert-date_files/right_top.jpg" alt="" height="76" width="10"></div>
+    <br clear="all">
+  </div>
+<div id="nav_left_corner"></div>
+  <div id="nav">
+    <ul>
+      <li><a href="http://www.ntchosting.com/"><span>Home</span></a></li>
+      <li><a href="http://www.ntchosting.com/web-hosting/"><span>Web Hosting</span></a></li>
+      <li><a href="http://www.ntchosting.com/domains/"><span>Domain Names</span></a></li>
+      <li><a href="http://www.ntchosting.com/popular-php-scripts-installer/"><span>PHP Scripts Installer</span></a></li>
+      <li><a href="http://www.ntchosting.com/support/"><span>Support</span></a></li>
+      <li class="active"><a href="http://www.ntchosting.com/encyclopedia.html"><span>Encyclopedia</span></a></li>
+      <li><a href="http://blog.ntchosting.com/"><span>Blog</span></a></li>
+      <li><a href="http://www.ntchosting.com/about-us/"><span>Company</span></a></li>
+    </ul>
+      <a href="https://www.ntchosting.com/order/" id="order_now_button"><img src="insert-date_files/order-now.png" alt="Order Now"></a>
+  </div>
+  <div id="nav_right_corner"></div>
+  <br clear="all">
+  <div id="subnav">&nbsp;&nbsp;
+        <a href="http://www.ntchosting.com/encyclopedia.html">Encyclopedia</a> |
+      <a href="http://www.ntchosting.com/domain-terminology.html">Domains</a> |
+      <a href="http://www.ntchosting.com/hosting-terminology.html">Hosting</a> |
+      <a href="http://www.ntchosting.com/database-terminology.html" class="bold">Databases</a> |
+      <a href="http://www.ntchosting.com/email-terminology.html">Email</a> |
+      <a href="http://www.ntchosting.com/dns-terminology.html">DNS</a> |
+      <a href="http://www.ntchosting.com/scripting-terminology.html">Scripting</a> | 
+      <a href="http://www.ntchosting.com/frameworks.html">Frameworks</a> | 
+      <a href="http://www.ntchosting.com/ftp-terminology.html">FTP</a> | 
+      <a href="http://www.ntchosting.com/multimedia-terminology.html">Multimedia</a> | 
+      <a href="http://www.ntchosting.com/internet-terminology.html">Internet</a> |
+      <a href="http://www.ntchosting.com/webdesign-terminology.html">Web Design</a> |
+      <a href="http://www.ntchosting.com/video-tutorials.html">Video Tutorials</a>
+    <div class="line5"></div>
+  </div>  <br clear="all">
+  <div class="line5"></div>
+  <div class="full_width">
+  <div class="breadcrumb"><a href="http://www.ntchosting.com/">Home</a> » <a href="http://www.ntchosting.com/encyclopedia.html">Encyclopedia</a> » <a href="http://www.ntchosting.com/database-terminology.html">Databases</a> » MySQL Date</div><br clear="all">
+    <h1>Insert Date in MySQL</h1>
+    <div id="bookmark"><!-- AddThis Button BEGIN -->
+	<script type="text/javascript">
+	var addthis_pub="ntchosting"; 
+	var addthis_options = 'facebook, digg, delicious, stumbleupon, slashdot, technorati, twitter, ask, netvibes, aolfav, google, live, email'; 
+	var addthis_offset_top = 2; 
+	var addthis_offset_left = -109; 
+	var addthis_brand = "NTC Hosting";
+    var addthis_header_color = "#ffffff";
+	var addthis_header_background = "#A12B2B";
+	</script>
+	<a href="http://www.addthis.com/bookmark.php?v=20" onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="insert-date_files/lg-share-en.gif" alt="Bookmark and Share" style="border: 0pt none;" height="16" width="125"></a><script type="text/javascript" src="insert-date_files/addthis_widget.js"></script>
+	<!-- AddThis Button END --></div>
+    <div style="margin-bottom: 8px; margin-left: 10px; float: right;"><a href="https://www.ntchosting.com/order/?plan=31921"><img src="insert-date_files/mysql-hosting.jpg" alt="MySQL Hosting"></a><br>
+<br><div class="ads2">					<script language="JavaScript">
+                        <!--
+                        //-------------------------------------------------
+                        function check_browser(){
+                                        this.ver=navigator.appVersion
+                                        this.dom=document.getElementById?1:0
+                                        this.ie6=(this.ver.indexOf("MSIE 6")>-1 && this.dom)?1:0;
+                                        this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0;
+                                        this.ie4=(document.all && !this.dom)?1:0;
+                                        this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0;
+                                        this.ns4=(document.layers && !this.dom)?1:0;
+                                        this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5);
+                                        return this;
+                        }
+                        //-------------------------------------------------
+                        function check_banner(){
+                                        var bw = new check_browser();
+                                        var PageWidth = (bw.ns4 || bw.ns5) ? innerWidth : document.body.offsetWidth - 20;
+                                        var PageHeight = (bw.ns4 || bw.ns5) ? innerHeight : document.body.offsetHeight - 20;
+                                        if (parent && (PageWidth < 300 || PageHeight < 200)) {
+                                                        var el = document.getElementById('0250369996');
+                                                        el.style.display = "none";
+                                        }
+                        }
+                        //-------------------------------------------------
+                        function banner_links_sh(isc){
+                                var el = document.getElementById('banner_links');
+                                if(el.style.display=='none') el.style.display = 'block';
+                                else{
+                                	if(!isc) return true;
+                                	el.style.display = 'none';
+                                }
+                                return true;
+                        }
+                        //-------------------------------------------------
+                        function google_ad_request_done(google_ads) {
+                                if (google_ads.length < 1 ) return;
+                                var colspana = (google_ads.length<3)?3:google_ads.length;
+                                document.write("<table cellpadding='0' cellspacing='0'  BORDER=0 style='width:400px;background-color:#F2F2F2;border-style:solid;border-width:1px;border-color:#F2F2F2;'>");
+                                document.write("<tr><td align='left' style='padding: 2 2 2 2;background-color:#F2F2F2;border-style:solid;border-width:0 0 1 0;border-color:#F2F2F2;' colspan='"+colspana+"'>");
+                                if (google_info.feedback_url) {
+                                  document.write("<a href='" + google_info.feedback_url +"' style='color:#000000;font-family:Tahoma;font-size: 9px; padding-left:6px; text-decoration:none;'>Ads by Google</a>");
+                                } else {
+                                  document.write("Ads By Google");
+                                }
+                                document.write("</td></tr>");
+                                if (google_ads[0].type == 'text') {
+                                		document.write("<tr>");
+                                        for(i = 0; i < google_ads.length; ++i) {
+                                        		if(i%google_cols==0) document.write("</tr><tr>");
+                                                document.write("<td nowrap style='padding:2 2 2 2;cursor:pointer;cursor:hand;'>" +
+                                                "<table width='100%' height='100%' bgcolor='#F2F2F2' style='border: 2px solid #F2F2F2; padding:3 3 3 3;' cellspacing='1' cellpadding='4'>"+
+                                                "<tr><td id='taw"+i+"' onFocus=\"ss('go to "+google_ads[i].visible_url+"')\"  onMouseOver=\"ss('go to "+google_ads[i].visible_url+"')\" "+
+                                                "onMouseOut=\"cs()\" onClick=\"ga(this,event)\"><a id='aw"+i+"' target='_top' style='font-weight:bold;font-family:Tahoma; font-size:12px;"+
+                                                "color:0000FF;' href='" +  google_ads[i].url + "'>" +
+                                                google_ads[i].line1 + "</a><br>" +
+                                                "<div style='font-family:Tahoma; font-size:11px; color:#000000;'>"+google_ads[i].line2 + "<br>" +
+                                                google_ads[i].line3 + "<br></div>" +
+                                                "<a style='font-family:Tahoma; font-size:11px; color:#C51200;' href='" + google_ads[i].url + "' >" +
+                                                google_ads[i].visible_url +
+                                                "</a></td></tr></table></td>");
+                                        }
+                                        document.write("</tr>");
+                                        /*
+                                        if(google_ads.length < 3 ){
+                                                document.write("<td nowrap><form method='get' action='http://www.google.com/custom' target='_top'>"+
+                                                        "<table bgcolor='#ffffff' border='0'>"+
+                                                        "<tr><td nowrap='nowrap' valign='middle' align='left' height='32'>"+
+                                                        "<a href='http://www.google.com/'>"+
+                                                        "<img src='http://www.google.com/logos/Logo_25wht.gif' border='0' alt='Google' align='middle'></img></a>"+
+                                                        "<input type='text' name='q' size='21' maxlength='255' value=''></input>"+
+                                                        "<input type='image' src='/icons/100ws/searchbut.gif' name='sa' value='Search'></input>"+
+                                                        "<input type='hidden' name='client' value='pub-3460518834604685'></input>"+
+                                                        "<input type='hidden' name='forid' value='1'></input>"+
+                                                        "<input type='hidden' name='channel' value='0974414919'></input>"+
+                                                        "<input type='hidden' name='ie' value='ISO-8859-1'></input>"+
+                                                        "<input type='hidden' name='oe' value='ISO-8859-1'></input>"+
+                                                        "<input type='hidden' name='cof' value='GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1;'></input>"+
+                                                        "<input type='hidden' name='hl' value='en'></input>"+
+                                                        "</td></tr></table>"+
+                                                        "</form></td>");
+                                        }
+                                        */
+                                       // document.write("</tr>");
+                                }
+                                if (google_ads[0].type == 'image') {
+                                  document.write("<tr><td align='center'>" +
+                                        "<a href='" + google_ads[0].url + "'style='text-decoration: none'>" +
+                                        "<img src='" + google_ads[0].image_url +
+                                        "' height='" + google_ads[0].height +
+                                        "' width='" + google_ads[0].width +
+                                        "' border='0'></a></td></tr>");
+                                }
+                                document.write ("</table>");
+                        }
+						//-------------------------------------------------
+						function ss(w,id) {window.status = w;return true;}
+						//-------------------------------------------------
+						function cs(){window.status='';}
+						//-------------------------------------------------
+						function ca(a) {top.location.href=document.getElementById(a).href;}
+						//-------------------------------------------------
+						function ga(o,e) {if (document.getElementById) {a=o.id.substring(1);p = "";r = "";g = e.target;if (g) {t = g.id;f = g.parentNode;if (f) {p = f.id;h = f.parentNode;if (h)r = h.id;}}else {h = e.srcElement;f = h.parentNode;if (f) p = f.id;t = h.id;}if (t==a || p==a || r==a)return true;top.location.href=document.getElementById(a).href;}}
+						//-------------------------------------------------
+                        window.onload = check_banner;
+                        -->
+                        </script>
+
+                        <script language="JavaScript">
+                        <!--
+                        google_ad_client = "pub-3460518834604685";
+                        google_ad_channel ="4965578256";
+                        google_ad_output = "js";
+                        google_max_num_ads = 2;
+                        google_cols = 2;
+                        google_safe     = "medium";
+                        google_feedback = "on";
+                        google_ad_type  = "text";
+                        google_color_line = "ff0000";
+                        -->
+          	</script>
+          	<script language="JavaScript" src="insert-date_files/show_ads.js"></script><script src="insert-date_files/show_ads_impl.js"></script><script src="insert-date_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><script language="JavaScript1.1" src="insert-date_files/ads_002"></script><table style="width: 400px; background-color: rgb(242, 242, 242); border: 1px solid rgb(242, 242, 242);" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td style="background-color: rgb(242, 242, 242); border-style: solid; border-color: rgb(242, 242, 242);" colspan="3" align="left"><a href="http://www.google.com/url?ct=abg&amp;q=https://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ntchosting.com/mysql/insert-date.html%26hl%3Den%26client%3Dca-pub-3460518834604685%26adU%3Dwww.querytool.com%26adT%3DAdvanced%2BQuery%2BTool%26gl%3DBD&amp;usg=AFQjCNF0AIijTGK4qEOyc_4PXZvarpGgwQ" style="color: rgb(0, 0, 0); font-family: Tahoma; font-size: 9px; padding-left: 6px; text-decoration: none;">Ads by Google</a></td></tr><tr></tr><tr><td style="cursor: pointer;" nowrap="nowrap"><table style="border: 2px solid rgb(242, 242, 242);" bgcolor="#f2f2f2" cellpadding="4" cellspacing="1" height="100%" width="100%"><tbody><tr><td id="taw0" onfocus="ss('go to www.querytool.com')" onmouseover="ss('go to www.querytool.com')" onmouseout="cs()" onclick="ga(this,event)"><a id="aw0" target="_top" style="font-weight: bold; font-family: Tahoma; font-size: 12px;" href="http://googleads.g.doubleclick.net/aclk?sa=L&amp;ai=BT_deRHz7TOaIMsGJsgbKvtmoBMaJoSnyrsSRA8CNtwHQ6AwQARgBINyX_AE4AFDS46LNAWCzkFqyARJ3d3cubnRjaG9zdGluZy5jb23IAQHaATBodHRwOi8vd3d3Lm50Y2hvc3RpbmcuY29tL215c3FsL2luc2VydC1kYXRlLmh0bWyAAgGoAwHoA9cC6AO5AvUDAAAAwA&amp;num=1&amp;sig=AGiWqtwRcd3vA3zmIf--172kwfm3hfLjvA&amp;client=ca-pub-3460518834604685&amp;adurl=http://www.querytool.com">Advanced Query Tool</a><br><div style="font-family: Tahoma; font-size: 11px; color: rgb(0, 0, 0);">Cross-database query and admin<br>tool. Powerful, fast, inexpensive.<br></div><a style="font-family: Tahoma; font-size: 11px; color: rgb(197, 18, 0);" href="http://googleads.g.doubleclick.net/aclk?sa=L&amp;ai=BT_deRHz7TOaIMsGJsgbKvtmoBMaJoSnyrsSRA8CNtwHQ6AwQARgBINyX_AE4AFDS46LNAWCzkFqyARJ3d3cubnRjaG9zdGluZy5jb23IAQHaATBodHRwOi8vd3d3Lm50Y2hvc3RpbmcuY29tL215c3FsL2luc2VydC1kYXRlLmh0bWyAAgGoAwHoA9cC6AO5AvUDAAAAwA&amp;num=1&amp;sig=AGiWqtwRcd3vA3zmIf--172kwfm3hfLjvA&amp;client=ca-pub-3460518834604685&amp;adurl=http://www.querytool.com">www.querytool.com</a></td></tr></tbody></table></td></tr></tbody></table>
+          	<noscript>
+               <img height=1 width=1 border=0 src="http://pagead2.googlesyndication.com/pagead/imp.gif?client=pub-3460518834604685&event=noscript"/><br />
+			</noscript></div>
+
+</div>
+	<strong>Table of contents : </strong><br>
+    <ul>
+      <li><a href="#How_to_Insert_a_Date_in_MySQL">How to Insert a Date in MySQL</a></li>
+      <li><a href="#How_to_use_the_DATE_statement">How to use the DATE statement</a></li>
+      <li><a href="#Insert_a_date_in_MySQL_using_YEAR">Insert a date in MySQL using YEAR</a></li>
+      <li><a href="#Set_a_date_in_MySQL_using_DATETIME">Set a date in MySQL using DATETIME</a></li>
+      <li><a href="#How_to_insert_a_date_in_PHPMyAdmin">How to insert a date in PHPMyAdmin</a></li>
+      <li><a href="#Setting_a_date_in_MySQL_using_a_PHP_script">Setting a date in MySQL using a PHP script</a></li>
+	  <li><a href="#Resources">Resources</a></li>
+	  <!-- <li><a href="#Related_links">Related Links</a></li> -->
+    </ul>    
+<h3><a name="How_to_Insert_a_Date_in_MySQL"></a>How to Insert a Date in MySQL</h3>
+Using a <a href="http://www.ntchosting.com/databases/database.html">database</a> is mandatory for the creation of a dynamic modern <a href="http://www.ntchosting.com/internet/website.html">website</a>. <a href="http://www.ntchosting.com/mysql/">MySQL</a> has been established as a preferred database platform due to the indisputable qualities of this database <a href="http://www.ntchosting.com/server.html">server</a>.
+ Specifying the dates on which the content is entered is of prime 
+importance for the structuring and the chronological arrangement of 
+articles, posts and replies in a dynamic website. MySQL comes with 
+several data types for storing dates in its database system: DATE, 
+TIMESTAMP, DATETIME and YEAR. 
+<br>
+<br>
+<a href="http://www.ntchosting.com/web-hosting-plus.html"><img style="margin-right: 15px; margin-bottom: 10px;" src="insert-date_files/plus-web-hosting-with-mysql-insert-date-support.jpg" alt="Advanced hosting with MySQL&nbsp;insert date&nbsp;support" align="left"></a>
+<h3><a name="How_to_use_the_DATE_statement"></a>How to use the DATE statement</h3>
+The default way to store a date in a MySQL database is by using DATE. 
+The proper format of a DATE is: YYYY-MM-DD. If you try to enter a date 
+in a format other than the Year-Month-Day format, it might work but it 
+won't be storing the dates as you expect. 
+<br>
+<br>
+In order to run a <a href="http://www.ntchosting.com/mysql/insert-data-into-table.html">MySQL Insert</a> command and add the current date into your table you can use MySQL's built-in function CURDATE() in your query. 
+
+<br clear="all">
+<br>
+<h3>An example of how to Insert a Date in MySQL using CURDATE</h3>
+<div class="sample"><p><strong>$query_auto = "INSERT INTO tablename (col_name, col_date)
+        VALUE ('DATE: Auto CURDATE()', CURDATE() )";</strong></p>
+  </div>
+
+Also, you can run a query to set the date manually 
+<br>
+<div class="ads2"><script language="JavaScript">
+                        <!--
+                        //-------------------------------------------------
+                        function check_browser(){
+                                        this.ver=navigator.appVersion
+                                        this.dom=document.getElementById?1:0
+                                        this.ie6=(this.ver.indexOf("MSIE 6")>-1 && this.dom)?1:0;
+                                        this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0;
+                                        this.ie4=(document.all && !this.dom)?1:0;
+                                        this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0;
+                                        this.ns4=(document.layers && !this.dom)?1:0;
+                                        this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5);
+                                        return this;
+                        }
+                        //-------------------------------------------------
+                        function check_banner(){
+                                        var bw = new check_browser();
+                                        var PageWidth = (bw.ns4 || bw.ns5) ? innerWidth : document.body.offsetWidth - 20;
+                                        var PageHeight = (bw.ns4 || bw.ns5) ? innerHeight : document.body.offsetHeight - 20;
+                                        if (parent && (PageWidth < 300 || PageHeight < 200)) {
+                                                        var el = document.getElementById('0250369996');
+                                                        el.style.display = "none";
+                                        }
+                        }
+                        //-------------------------------------------------
+                        function banner_links_sh(isc){
+                                var el = document.getElementById('banner_links');
+                                if(el.style.display=='none') el.style.display = 'block';
+                                else{
+                                	if(!isc) return true;
+                                	el.style.display = 'none';
+                                }
+                                return true;
+                        }
+                        //-------------------------------------------------
+                        function google_ad_request_done(google_ads) {
+                                if (google_ads.length < 1 ) return;
+                                var colspana = (google_ads.length<3)?3:google_ads.length;
+                                document.write("<table cellpadding='0' cellspacing='0'  BORDER=0 style='width:940px;background-color:#F2F2F2;border-style:solid;border-width:1px;border-color:#F2F2F2;'>");
+                                document.write("<tr><td align='left' style='padding: 2 2 2 2;background-color:#F2F2F2;border-style:solid;border-width:0 0 1 0;border-color:#F2F2F2;' colspan='"+colspana+"'>");
+                                if (google_info.feedback_url) {
+                                  document.write("<a href='" + google_info.feedback_url +"' style='color:#000000;font-family:Tahoma;font-size: 9px; padding-left:6px; text-decoration:none;'>Ads by Google</a>");
+                                } else {
+                                  document.write("Ads By Google");
+                                }
+                                document.write("</td></tr>");
+                                if (google_ads[0].type == 'text') {
+                                		document.write("<tr>");
+                                        for(i = 0; i < google_ads.length; ++i) {
+                                        		if(i%google_cols==0) document.write("</tr><tr>");
+                                                document.write("<td nowrap style='padding:2 2 2 2;cursor:pointer;cursor:hand;'>" +
+                                                "<table width='100%' height='100%' bgcolor='#F2F2F2' style='border: 2px solid #F2F2F2; padding:3 3 3 3;' cellspacing='1' cellpadding='4'>"+
+                                                "<tr><td id='taw"+i+"' onFocus=\"ss('go to "+google_ads[i].visible_url+"')\"  onMouseOver=\"ss('go to "+google_ads[i].visible_url+"')\" "+
+                                                "onMouseOut=\"cs()\" onClick=\"ga(this,event)\"><a id='aw"+i+"' target='_top' style='font-weight:bold;font-family:Tahoma; font-size:12px;"+
+                                                "color:0000FF;' href='" +  google_ads[i].url + "'>" +
+                                                google_ads[i].line1 + "</a><br>" +
+                                                "<div style='font-family:Tahoma; font-size:11px; color:#000000;'>"+google_ads[i].line2 + "<br>" +
+                                                google_ads[i].line3 + "<br></div>" +
+                                                "<a style='font-family:Tahoma; font-size:11px; color:#C51200;' href='" + google_ads[i].url + "' >" +
+                                                google_ads[i].visible_url +
+                                                "</a></td></tr></table></td>");
+                                        }
+                                        document.write("</tr>");
+                                        /*
+                                        if(google_ads.length < 3 ){
+                                                document.write("<td nowrap><form method='get' action='http://www.google.com/custom' target='_top'>"+
+                                                        "<table bgcolor='#ffffff' border='0'>"+
+                                                        "<tr><td nowrap='nowrap' valign='middle' align='left' height='32'>"+
+                                                        "<a href='http://www.google.com/'>"+
+                                                        "<img src='http://www.google.com/logos/Logo_25wht.gif' border='0' alt='Google' align='middle'></img></a>"+
+                                                        "<input type='text' name='q' size='21' maxlength='255' value=''></input>"+
+                                                        "<input type='image' src='/icons/100ws/searchbut.gif' name='sa' value='Search'></input>"+
+                                                        "<input type='hidden' name='client' value='pub-3460518834604685'></input>"+
+                                                        "<input type='hidden' name='forid' value='1'></input>"+
+                                                        "<input type='hidden' name='channel' value='0974414919'></input>"+
+                                                        "<input type='hidden' name='ie' value='ISO-8859-1'></input>"+
+                                                        "<input type='hidden' name='oe' value='ISO-8859-1'></input>"+
+                                                        "<input type='hidden' name='cof' value='GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1;'></input>"+
+                                                        "<input type='hidden' name='hl' value='en'></input>"+
+                                                        "</td></tr></table>"+
+                                                        "</form></td>");
+                                        }
+                                        */
+                                       // document.write("</tr>");
+                                }
+                                if (google_ads[0].type == 'image') {
+                                  document.write("<tr><td align='center'>" +
+                                        "<a href='" + google_ads[0].url + "'style='text-decoration: none'>" +
+                                        "<img src='" + google_ads[0].image_url +
+                                        "' height='" + google_ads[0].height +
+                                        "' width='" + google_ads[0].width +
+                                        "' border='0'></a></td></tr>");
+                                }
+                                document.write ("</table>");
+                        }
+						//-------------------------------------------------
+						function ss(w,id) {window.status = w;return true;}
+						//-------------------------------------------------
+						function cs(){window.status='';}
+						//-------------------------------------------------
+						function ca(a) {top.location.href=document.getElementById(a).href;}
+						//-------------------------------------------------
+						function ga(o,e) {if (document.getElementById) {a=o.id.substring(1);p = "";r = "";g = e.target;if (g) {t = g.id;f = g.parentNode;if (f) {p = f.id;h = f.parentNode;if (h)r = h.id;}}else {h = e.srcElement;f = h.parentNode;if (f) p = f.id;t = h.id;}if (t==a || p==a || r==a)return true;top.location.href=document.getElementById(a).href;}}
+						//-------------------------------------------------
+                        window.onload = check_banner;
+                        -->
+                        </script>
+
+                        <script language="JavaScript">
+                        <!--
+                        google_ad_client = "pub-3460518834604685";
+                        google_ad_channel ="4965578256";
+                        google_ad_output = "js";
+                        google_max_num_ads = 5;
+                        google_cols = 5;
+                        google_safe     = "medium";
+                        google_feedback = "on";
+                        google_ad_type  = "text";
+                        google_color_line = "ff0000";
+                        -->
+          	</script>
+          	<script language="JavaScript" src="insert-date_files/show_ads.js"></script><script src="insert-date_files/show_ads_impl.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><script language="JavaScript1.1" src="insert-date_files/ads"></script><table style="width: 940px; background-color: rgb(242, 242, 242); border: 1px solid rgb(242, 242, 242);" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td style="background-color: rgb(242, 242, 242); border-style: solid; border-color: rgb(242, 242, 242);" colspan="3" align="left"><a href="http://www.google.com/url?ct=abg&amp;q=https://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ntchosting.com/mysql/insert-date.html%26hl%3Den%26client%3Dca-pub-3460518834604685%26adU%3Dwww.livescorefeed.net%26adT%3DLivescore%2BXML%2Bfeed%26gl%3DBD&amp;usg=AFQjCNEhTRFRsbipVHrEVx-FcTX2OxlYiQ" style="color: rgb(0, 0, 0); font-family: Tahoma; font-size: 9px; padding-left: 6px; text-decoration: none;">Ads by Google</a></td></tr><tr></tr><tr><td style="cursor: pointer;" nowrap="nowrap"><table style="border: 2px solid rgb(242, 242, 242);" bgcolor="#f2f2f2" cellpadding="4" cellspacing="1" height="100%" width="100%"><tbody><tr><td id="taw0" onfocus="ss('go to www.livescorefeed.net')" onmouseover="ss('go to www.livescorefeed.net')" onmouseout="cs()" onclick="ga(this,event)"><a id="aw0" target="_top" style="font-weight: bold; font-family: Tahoma; font-size: 12px;" href="http://googleads.g.doubleclick.net/aclk?sa=L&amp;ai=BLYR7RXz7TL_sN8yGsgb24uipBLPBsfAB4_TyuhfAjbcBgKYdEAEYASDcl_wBOABQ_7zBqv______AWCzkFqyARJ3d3cubnRjaG9zdGluZy5jb23IAQHaATBodHRwOi8vd3d3Lm50Y2hvc3RpbmcuY29tL215c3FsL2luc2VydC1kYXRlLmh0bWypAjcWw2nh9aY-qAMB6APXAugDuQL1AwAAAMQ&amp;num=1&amp;sig=AGiWqtx4cIRSmwhrnMPNSBmI2Ghrx8csoQ&amp;client=ca-pub-3460518834604685&amp;adurl=http://www.livescorefeed.net">Livescore XML feed</a><br><div style="font-family: Tahoma; font-size: 11px; color: rgb(0, 0, 0);">Get livescore feed XML data<br>Get live TV soccer stream<br></div><a style="font-family: Tahoma; font-size: 11px; color: rgb(197, 18, 0);" href="http://googleads.g.doubleclick.net/aclk?sa=L&amp;ai=BLYR7RXz7TL_sN8yGsgb24uipBLPBsfAB4_TyuhfAjbcBgKYdEAEYASDcl_wBOABQ_7zBqv______AWCzkFqyARJ3d3cubnRjaG9zdGluZy5jb23IAQHaATBodHRwOi8vd3d3Lm50Y2hvc3RpbmcuY29tL215c3FsL2luc2VydC1kYXRlLmh0bWypAjcWw2nh9aY-qAMB6APXAugDuQL1AwAAAMQ&amp;num=1&amp;sig=AGiWqtx4cIRSmwhrnMPNSBmI2Ghrx8csoQ&amp;client=ca-pub-3460518834604685&amp;adurl=http://www.livescorefeed.net">www.livescorefeed.net</a></td></tr></tbody></table></td></tr></tbody></table>
+          	<noscript>
+               <img height=1 width=1 border=0 src="http://pagead2.googlesyndication.com/pagead/imp.gif?client=pub-3460518834604685&event=noscript"/><br />
+			</noscript></div>
+
+<br>
+<h3>An example of how to Insert a Date in MySQL manually</h3>
+<div class="sample"><p><strong>$query_manual = "INSERT INTO tablename (col_name, col_date)
+        VALUES ('DATE: Manual Date', '2008-7-04')";</strong></p>
+  </div>
+
+All these queries can be run by using a command line, a <a href="http://www.ntchosting.com/script.html">script</a> (written in <a href="http://www.ntchosting.com/php/">PHP</a>, <a href="http://www.ntchosting.com/perl/">Perl</a>, <a href="http://www.ntchosting.com/python/">Python</a> etc.), or via the PHPMyAdmin interface inserted in NTC Hosting's sophisticated <a href="http://www.ntchosting.com/service-uptime-guarantee.html">Web Hosting</a> <a href="http://www.ntchosting.com/web-hosting/control-panel/">Control Panel</a>.
+    <br><br>
+Also, there is a statement that allows you to set only the YEAR of an 
+event. The Year statement uses an YYYY format and has a range from 1901 
+to 2155 (for years outside this range you need to use the DATE 
+statement)
+    <br><br>
+<h3><a name="Insert_a_date_in_MySQL_using_YEAR"></a>Insert a date in MySQL using YEAR</h3>
+Now let's check how the YEAR statement works in a query. For our example
+ we will use CURDATE() again.  As we mentioned above, CURDATE() provides
+ a lot more information than just the year, but when we use the YEAR 
+statement all the date information, besides the year, is ignored. 
+    <br><br>
+<h3>An example of how to Insert a YEAR in MySQL using CURDATE</h3>
+<div class="sample">
+  <p>INSERT INTO phonebook (col_name, col_date) VALUE ('YEAR: Auto CURDATE()', CURDATE() )";</p>
+</div>
+<h3><a name="Set_a_date_in_MySQL_using_DATETIME"></a>Set a date in MySQL using DATETIME</h3>
+Using DATETIME you can store both the date and the time. Its format is 
+YYYY-MM-DD HH:mm:SS. Using this statement you can store the output for 
+both DATE and TIME statements. Also, you can choose to store the date 
+information only, but you can't store just the time. 
+    <br><div class="ads2"><script language="JavaScript">
+                        <!--
+                        //-------------------------------------------------
+                        function check_browser(){
+                                        this.ver=navigator.appVersion
+                                        this.dom=document.getElementById?1:0
+                                        this.ie6=(this.ver.indexOf("MSIE 6")>-1 && this.dom)?1:0;
+                                        this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0;
+                                        this.ie4=(document.all && !this.dom)?1:0;
+                                        this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0;
+                                        this.ns4=(document.layers && !this.dom)?1:0;
+                                        this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5);
+                                        return this;
+                        }
+                        //-------------------------------------------------
+                        function check_banner(){
+                                        var bw = new check_browser();
+                                        var PageWidth = (bw.ns4 || bw.ns5) ? innerWidth : document.body.offsetWidth - 20;
+                                        var PageHeight = (bw.ns4 || bw.ns5) ? innerHeight : document.body.offsetHeight - 20;
+                                        if (parent && (PageWidth < 300 || PageHeight < 200)) {
+                                                        var el = document.getElementById('0250369996');
+                                                        el.style.display = "none";
+                                        }
+                        }
+                        //-------------------------------------------------
+                        function banner_links_sh(isc){
+                                var el = document.getElementById('banner_links');
+                                if(el.style.display=='none') el.style.display = 'block';
+                                else{
+                                	if(!isc) return true;
+                                	el.style.display = 'none';
+                                }
+                                return true;
+                        }
+                        //-------------------------------------------------
+                        function google_ad_request_done(google_ads) {
+                                if (google_ads.length < 1 ) return;
+                                var colspana = (google_ads.length<3)?3:google_ads.length;
+                                document.write("<table cellpadding='0' cellspacing='0'  BORDER=0 style='width:940px;background-color:#F2F2F2;border-style:solid;border-width:1px;border-color:#F2F2F2;'>");
+                                document.write("<tr><td align='left' style='padding: 2 2 2 2;background-color:#F2F2F2;border-style:solid;border-width:0 0 1 0;border-color:#F2F2F2;' colspan='"+colspana+"'>");
+                                if (google_info.feedback_url) {
+                                  document.write("<a href='" + google_info.feedback_url +"' style='color:#000000;font-family:Tahoma;font-size: 9px; padding-left:6px; text-decoration:none;'>Ads by Google</a>");
+                                } else {
+                                  document.write("Ads By Google");
+                                }
+                                document.write("</td></tr>");
+                                if (google_ads[0].type == 'text') {
+                                		document.write("<tr>");
+                                        for(i = 0; i < google_ads.length; ++i) {
+                                        		if(i%google_cols==0) document.write("</tr><tr>");
+                                                document.write("<td nowrap style='padding:2 2 2 2;cursor:pointer;cursor:hand;'>" +
+                                                "<table width='100%' height='100%' bgcolor='#F2F2F2' style='border: 2px solid #F2F2F2; padding:3 3 3 3;' cellspacing='1' cellpadding='4'>"+
+                                                "<tr><td id='taw"+i+"' onFocus=\"ss('go to "+google_ads[i].visible_url+"')\"  onMouseOver=\"ss('go to "+google_ads[i].visible_url+"')\" "+
+                                                "onMouseOut=\"cs()\" onClick=\"ga(this,event)\"><a id='aw"+i+"' target='_top' style='font-weight:bold;font-family:Tahoma; font-size:12px;"+
+                                                "color:0000FF;' href='" +  google_ads[i].url + "'>" +
+                                                google_ads[i].line1 + "</a><br>" +
+                                                "<div style='font-family:Tahoma; font-size:11px; color:#000000;'>"+google_ads[i].line2 + "<br>" +
+                                                google_ads[i].line3 + "<br></div>" +
+                                                "<a style='font-family:Tahoma; font-size:11px; color:#C51200;' href='" + google_ads[i].url + "' >" +
+                                                google_ads[i].visible_url +
+                                                "</a></td></tr></table></td>");
+                                        }
+                                        document.write("</tr>");
+                                        /*
+                                        if(google_ads.length < 3 ){
+                                                document.write("<td nowrap><form method='get' action='http://www.google.com/custom' target='_top'>"+
+                                                        "<table bgcolor='#ffffff' border='0'>"+
+                                                        "<tr><td nowrap='nowrap' valign='middle' align='left' height='32'>"+
+                                                        "<a href='http://www.google.com/'>"+
+                                                        "<img src='http://www.google.com/logos/Logo_25wht.gif' border='0' alt='Google' align='middle'></img></a>"+
+                                                        "<input type='text' name='q' size='21' maxlength='255' value=''></input>"+
+                                                        "<input type='image' src='/icons/100ws/searchbut.gif' name='sa' value='Search'></input>"+
+                                                        "<input type='hidden' name='client' value='pub-3460518834604685'></input>"+
+                                                        "<input type='hidden' name='forid' value='1'></input>"+
+                                                        "<input type='hidden' name='channel' value='0974414919'></input>"+
+                                                        "<input type='hidden' name='ie' value='ISO-8859-1'></input>"+
+                                                        "<input type='hidden' name='oe' value='ISO-8859-1'></input>"+
+                                                        "<input type='hidden' name='cof' value='GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1;'></input>"+
+                                                        "<input type='hidden' name='hl' value='en'></input>"+
+                                                        "</td></tr></table>"+
+                                                        "</form></td>");
+                                        }
+                                        */
+                                       // document.write("</tr>");
+                                }
+                                if (google_ads[0].type == 'image') {
+                                  document.write("<tr><td align='center'>" +
+                                        "<a href='" + google_ads[0].url + "'style='text-decoration: none'>" +
+                                        "<img src='" + google_ads[0].image_url +
+                                        "' height='" + google_ads[0].height +
+                                        "' width='" + google_ads[0].width +
+                                        "' border='0'></a></td></tr>");
+                                }
+                                document.write ("</table>");
+                        }
+						//-------------------------------------------------
+						function ss(w,id) {window.status = w;return true;}
+						//-------------------------------------------------
+						function cs(){window.status='';}
+						//-------------------------------------------------
+						function ca(a) {top.location.href=document.getElementById(a).href;}
+						//-------------------------------------------------
+						function ga(o,e) {if (document.getElementById) {a=o.id.substring(1);p = "";r = "";g = e.target;if (g) {t = g.id;f = g.parentNode;if (f) {p = f.id;h = f.parentNode;if (h)r = h.id;}}else {h = e.srcElement;f = h.parentNode;if (f) p = f.id;t = h.id;}if (t==a || p==a || r==a)return true;top.location.href=document.getElementById(a).href;}}
+						//-------------------------------------------------
+                        window.onload = check_banner;
+                        -->
+                        </script>
+
+                        <script language="JavaScript">
+                        <!--
+                        google_ad_client = "pub-3460518834604685";
+                        google_ad_channel ="4965578256";
+                        google_ad_output = "js";
+                        google_max_num_ads = 5;
+                        google_cols = 5;
+                        google_safe     = "medium";
+                        google_feedback = "on";
+                        google_ad_type  = "text";
+                        google_color_line = "ff0000";
+                        -->
+          	</script>
+          	<script language="JavaScript" src="insert-date_files/show_ads.js"></script><script src="insert-date_files/show_ads_impl.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><script language="JavaScript1.1" src="insert-date_files/ads_003"></script><table style="width: 940px; background-color: rgb(242, 242, 242); border: 1px solid rgb(242, 242, 242);" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td style="background-color: rgb(242, 242, 242); border-style: solid; border-color: rgb(242, 242, 242);" colspan="3" align="left"><a href="http://www.google.com/url?ct=abg&amp;q=https://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ntchosting.com/mysql/insert-date.html%26hl%3Den%26client%3Dca-pub-3460518834604685%26adU%3Dwww.traintracksoftware.com%26adT%3DAccess%2BTraining%2BDatabase%26gl%3DBD&amp;usg=AFQjCNH2YxKhoQ5O7w_kwKc00XhERY3UYQ" style="color: rgb(0, 0, 0); font-family: Tahoma; font-size: 9px; padding-left: 6px; text-decoration: none;">Ads by Google</a></td></tr><tr></tr><tr><td style="cursor: pointer;" nowrap="nowrap"><table style="border: 2px solid rgb(242, 242, 242);" bgcolor="#f2f2f2" cellpadding="4" cellspacing="1" height="100%" width="100%"><tbody><tr><td id="taw0" onfocus="ss('go to www.traintracksoftware.com')" onmouseover="ss('go to www.traintracksoftware.com')" onmouseout="cs()" onclick="ga(this,event)"><a id="aw0" target="_top" style="font-weight: bold; font-family: Tahoma; font-size: 12px;" href="http://googleads.g.doubleclick.net/aclk?sa=l&amp;ai=BNicERnz7TNbUJJiIsgbV4dWyBeOxttoBs5i1mBnAjbcBsL0QEAEYASDcl_wBOABQ--rz-gNgs5BaoAGh5O39A7IBEnd3dy5udGNob3N0aW5nLmNvbcgBAdoBMGh0dHA6Ly93d3cubnRjaG9zdGluZy5jb20vbXlzcWwvaW5zZXJ0LWRhdGUuaHRtbIACAagDAegD1wLoA7kC9QMAAADE&amp;num=1&amp;sig=AGiWqtxumROHcUZMUxZHFyqy7M40DAmR9A&amp;client=ca-pub-3460518834604685&amp;adurl=http://www.traintracksoftware.com/TRAINTRACK.html">Access Training Database</a><br><div style="font-family: Tahoma; font-size: 11px; color: rgb(0, 0, 0);">Customizable MS Access database<br>Keeps track of employee training<br></div><a style="font-family: Tahoma; font-size: 11px; color: rgb(197, 18, 0);" href="http://googleads.g.doubleclick.net/aclk?sa=l&amp;ai=BNicERnz7TNbUJJiIsgbV4dWyBeOxttoBs5i1mBnAjbcBsL0QEAEYASDcl_wBOABQ--rz-gNgs5BaoAGh5O39A7IBEnd3dy5udGNob3N0aW5nLmNvbcgBAdoBMGh0dHA6Ly93d3cubnRjaG9zdGluZy5jb20vbXlzcWwvaW5zZXJ0LWRhdGUuaHRtbIACAagDAegD1wLoA7kC9QMAAADE&amp;num=1&amp;sig=AGiWqtxumROHcUZMUxZHFyqy7M40DAmR9A&amp;client=ca-pub-3460518834604685&amp;adurl=http://www.traintracksoftware.com/TRAINTRACK.html">www.traintracksoftware.com</a></td></tr></tbody></table></td></tr></tbody></table>
+          	<noscript>
+               <img height=1 width=1 border=0 src="http://pagead2.googlesyndication.com/pagead/imp.gif?client=pub-3460518834604685&event=noscript"/><br />
+			</noscript></div>
+
+<br>
+    <h3>An example of how to use DATETIME</h3>
+    <div class="sample">
+      <p>INSERT INTO phonebook (col_name, col_date)&nbsp; VALUE ('DATETIME: Auto CURDATE()', CURDATE() )";</p>
+    </div>
+<h3><a name="How_to_insert_a_date_in_PHPMyAdmin"></a>How to insert a date in PHPMyAdmin</h3>
+As we mentioned above, there are several ways to store a date. One of 
+the easiest methods is by using a database management tool such as <a href="http://www.ntchosting.com/mysql/phpmyadmin.html">PHPMyAdmin</a>.
+ With its graphical user interface and set of built-in features, 
+PHPMyAdmin makes the database management an easy job. That’s why we, at 
+NTC Hosting, have chosen the PHPMyAdmin web management tool and are 
+providing it with all our web <a href="http://www.ntchosting.com/web-hosting.html">hosting</a> plans. 
+<br><br>
+To add a date information in PHPMyAdmin you need to log in the 
+PHPMyAdmin interface and then to enter the 'Insert' tab. Then you can 
+choose the appropriate Insert functions for each field using the 
+drop-down list in the functions <a href="http://www.ntchosting.com/html/column.html">column</a>.
+<br><br>
+<img src="insert-date_files/phpMyAdmin-Insert-date.png">
+<br><br>
+If you want to learn more on how to use the insert function in PHPMyAdmin, please visit the <a href="http://www.ntchosting.com/mysql/insert-data-into-table.html">MySQL Insert</a> and PHPMyAdmin articles.   
+<br><br>
+<h3><a name="Setting_a_date_in_MySQL_using_a_PHP_script"></a>Setting a date in MySQL using a PHP script</h3>
+Using a <a href="http://www.ntchosting.com/php/php-script.html">PHP script</a>
+ for setting a date in MySQL is very common. To use this method, run an 
+SQL query in a PHP script. This method is used every day by some very 
+simple PHP scripts and by large modern PHP-based applications. Let’s 
+take a look at how it looks like:
+<br><br>
+<h3>An example of a PHP script which sets a date in MySQL manually</h3>
+<div class="sample">
+  <p><strong class="red_text">&lt;?php</strong><br>
+    $query_date = "<strong>INSERT INTO tablename (col_name, col_date) VALUES ('DATE: Manual Date', '2008-7-04')”;</strong><br>
+    mysql_query($query_date) or die(mysql_error());<br>
+    <strong class="red_text">?&gt;</strong></p>
+</div>
+Also, there is an option to set the date automatically:
+<br>
+<br>
+<h3>An example of a PHP script which sets a date in MySQL manually</h3>
+<div class="sample">
+  <p><strong class="red_text">&lt;?php</strong><br>
+    $query_date = "<strong>INSERT INTO tablename (col_name, col_date) VALUE ('DATE: Auto CURDATE()', CURDATE() )”;</strong><br>
+    mysql_query($query_date) or die(mysql_error());<br>
+    <strong class="red_text">?&gt;</strong></p>
+</div>
+As you can assume, you can use not only DATE, but also YEAR and DATETIME statements in PHP - the syntax is similar.
+<br><br>
+<p><a name="Resources"></a><strong>Resources:</strong></p>
+    <ul>
+    	<li><a rel="nofollow" href="http://dev.mysql.com/doc/refman/5.1/en/date-and-time-functions.html" target="_blank">Date and time functions in MySQL</a></li>
+    </ul>
+        <a name="Related_links"></a><!--     <h1>Related Links:</h1>
+	<a href="/mysql/">MySQL</a><br />	<a href="/mysql/mysql-6-preview.html">MySQL 6 Preview</a><br />    <a href="/mysql/create-user.html">MySQL create user</a><br />    <a href="/mysql/create-database.html">MySQL create database</a><br />    <a href="/mysql/create-table.html">MySQL create table</a><br />    <a href="/mysql/alter-table.html">MySQL alter table</a><br />    <a href="/mysql/grant.html">MySQL grant</a><br />    <a href="/databases/structured-query-language.html">SQL</a><br />    <a href="/databases/database.html">Database</a><br />    <a href="/databases/database-administration.html">DBA</a><br />    <a href="/databases/open-database-connectivity.html">ODBC</a><br />    <a href="/postgresql/database-storage.html">PostgreSQL Database Storage</a><br /> -->
+  </div>
+  <br clear="all">
+  <div class="line10"></div>
+    <div class="line10"></div>
+  <div id="footer_left_corner"></div>
+  <div id="footer">© Copyright www.ntchosting.com 2002 - 2010. NTChosting.com is a 100% owned by LiquidNet Ltd. All rights reserved.<br><a href="http://www.ntchosting.com/contact-us/">Contact Us</a> | <a href="http://www.ntchosting.com/terms/privacy-policy.html">Privacy Policy</a> | <a href="http://www.ntchosting.com/terms/">Terms and Conditions</a> | <a href="http://www.ntchosting.com/service-level-guarantees/">Service Level Guarantees</a></div>
+  <div id="footer_right_corner"></div>
+  
+<script language="javascript" type="text/javascript">
+ <!--
+function _lcn_isSecure(){ return location.href.match(/^https/i) == "https";}
+if(typeof(LCNObj) == 'undefined') {var LCNObj = new Object();}
+if(_lcn_isSecure()){LCNObj.url1 = "https://secure.livechatnow.com/";}else{LCNObj.url1 = "http://zebra.livechatnow.com/";}
+LCNObj.query = "&img=url&group=NTCHosting&skin=&survey=&survey_ec=&survey_lm=&rule=&name=&email=&track=&uid=49737";
+LCNObj.open = LCNObj.url1 + "js/enter.php?cid=4982" + LCNObj.query;
+function _cln_enter(){ window.open(LCNObj.open, '_chat_4982', 'resizable=yes,menubar=no,scrollbars=yes, width=500, height=500'); return false;}
+document.getElementById('livechat').innerHTML = "<a href='"+LCNObj.open+"' onclick='return _cln_enter();'><img id='chat_img' src='http://www.ntchosting.com/web_hosting_images/live_chat_online.gif' alt='ntc live chat' width='221' height='34' /></a>";
+// -->
+
+	/*
+	if(navigator.appVersion.indexOf("MSIE")!=-1)
+	{
+		document.getElementById('snow').style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/web_hosting_images/snow.png', sizingMethod='scale')";
+		document.getElementById('snow').style.backgroundImage = 'url(/web_hosting_images/blank.gif)';
+	}
+	*/
+</script>
+<script type="text/javascript" language="javascript" src="insert-date_files/counter.htm"></script><noscript><img src="http://www.visitstracker.com/webstat.php?user=58&amp;sr=" alt="counter" border="0" /></noscript>
+<!-- GOOGLE Analytics code BEGIN -->
+<script src="insert-date_files/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-1074220-3";
+urchinTracker();
+</script>
+<!-- GOOGLE Analytics code END -->
+
+  <br clear="all">
+</div>
+<script src="insert-date_files/predictadme.js" type="text/javascript"></script></body></html>

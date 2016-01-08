@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = new Object(); 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://googleads.g.doubleclick.net/aclk?sa=l&amp;ai=BBVlMjX77TNaMNsSZsgbRmuGzBeOxttoBs5i1mBnAjbcBsL0QEAEYASDcl_wBOABQ--rz-gNgs5BaoAGh5O39A7IBEnd3dy5udGNob3N0aW5nLmNvbcgBAdoBMGh0dHA6Ly93d3cubnRjaG9zdGluZy5jb20vbXlzcWwvaW5zZXJ0LWRhdGUuaHRtbIACAagDAegD1wLoA7kC9QMAAADE&amp;num=1&amp;sig=AGiWqtz-vb8LTGzKXq9cuu9q-JVYXEFNdA&amp;client=ca-pub-3460518834604685&amp;adurl=http://www.traintracksoftware.com/TRAINTRACK.html"; 
+google_ad.visible_url = "www.traintracksoftware.com"; 
+google_ad.line1 = "Access Training Database"; 
+google_ad.line2 = "Customizable MS Access database"; 
+google_ad.line3 = "Keeps track of employee training"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "http://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ntchosting.com/mysql/insert-date.html%26hl%3Den%26client%3Dca-pub-3460518834604685%26adU%3Dwww.traintracksoftware.com%26adT%3DAccess%2BTraining%2BDatabase%26gl%3DBD\x26usg\x3dAFQjCNH2YxKhoQ5O7w_kwKc00XhERY3UYQ";
+var google_attribution_text = "Ads by Google";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

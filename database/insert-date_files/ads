@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = new Object(); 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://googleads.g.doubleclick.net/aclk?sa=L&amp;ai=BfUaniX77TPbTN4qJsgasqtiXBLPBsfAB4_TyuhfAjbcBgKYdEAEYASDcl_wBOABQ_7zBqv______AWCzkFqyARJ3d3cubnRjaG9zdGluZy5jb23IAQHaATBodHRwOi8vd3d3Lm50Y2hvc3RpbmcuY29tL215c3FsL2luc2VydC1kYXRlLmh0bWypAjcWw2nh9aY-qAMB6APXAugDuQL1AwAAAMQ&amp;num=1&amp;sig=AGiWqtyGQ4BOoAN_bYSMI_3nTiPHGZA7xg&amp;client=ca-pub-3460518834604685&amp;adurl=http://www.livescorefeed.net"; 
+google_ad.visible_url = "www.livescorefeed.net"; 
+google_ad.line1 = "Livescore XML feed"; 
+google_ad.line2 = "Get livescore feed XML data"; 
+google_ad.line3 = "Get live TV soccer stream"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "http://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ntchosting.com/mysql/insert-date.html%26hl%3Den%26client%3Dca-pub-3460518834604685%26adU%3Dwww.livescorefeed.net%26adT%3DLivescore%2BXML%2Bfeed%26gl%3DBD\x26usg\x3dAFQjCNEhTRFRsbipVHrEVx-FcTX2OxlYiQ";
+var google_attribution_text = "Ads by Google";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

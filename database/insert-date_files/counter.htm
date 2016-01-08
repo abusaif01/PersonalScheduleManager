@@ -1,0 +1,12 @@
+var base = "http://www.visitstracker.com/webstat.php";
+var ref = escape(document.referrer);
+var req = escape(document.location.href);
+var ag = navigator.userAgent.toLowerCase();
+var res = escape(screen.width+ 'x'+screen.height);
+var javas;
+if(navigator.javaEnabled()) javas = 1; else javas = 0;
+
+var query_url = base+"?user=58&res="+res+"&ag="+ag+"&javas="+javas+"&js=1.0&ref="+ref+"&req="+req+"&jsf=1&sr=";
+//document.write(query_url);
+var image = new Image();
+image.src = query_url;
